@@ -17,6 +17,7 @@
             height: 100vh;
             text-align: center;
             overflow-y: hidden;
+            overflow: hidden;
         }
 
         .invitation-container {
@@ -29,6 +30,7 @@
             max-width: 600px;
             position: relative;
             overflow: hidden;
+            overflow-y: hidden;
         }
 
         .invitation-container::before, .invitation-container::after {
@@ -127,6 +129,80 @@
 /* Mobile Responsive */
 
 @media screen and (max-width: 768px) {
+    .invitation-container {
+        margin-top: 170%;
+        padding: 1rem;
+        width: 170%;
+        margin-left: -37%;
+        /* margin: 1rem auto; */
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow-y: hidden;
+    }
+
+    .button {
+        padding: 15px 30px;
+        font-size: 14px;
+    }
+
+    .navbar {
+        padding: 0.8rem;
+        flex-direction: column;
+    }
+
+    .navbar-logo {
+        margin-bottom: 1rem;
+    }
+
+    .navbar-menu {
+        margin-right: 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .content {
+        padding-top: 7rem;
+    }
+}
+@media screen and (max-width: 400px) {
+    .invitation-container {
+        margin-top: 170%;
+        padding: 1rem;
+        width: 170%;
+        margin-left: -37%;
+        /* margin: 1rem auto; */
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow-y: hidden;
+    }
+
+    .button {
+        padding: 15px 30px;
+        font-size: 14px;
+    }
+
+    .navbar {
+        padding: 0.8rem;
+        flex-direction: column;
+    }
+
+    .navbar-logo {
+        margin-bottom: 1rem;
+    }
+
+    .navbar-menu {
+        margin-right: 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .content {
+        padding-top: 7rem;
+    }
+}
+@media screen and (max-width: 900px) {
     .invitation-container {
         margin-top: 170%;
         padding: 1rem;
