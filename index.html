@@ -128,8 +128,13 @@
 
 @media screen and (max-width: 768px) {
     .invitation-container {
-        margin-top: 146%;
-        margin-left: -17%;
+        margin-top: 170%;
+        padding: 1rem;
+        width: 170%;
+        margin-left: -37%;
+        /* margin: 1rem auto; */
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         overflow-y: hidden;
     }
 
@@ -158,14 +163,30 @@
         padding-top: 7rem;
     }
 }
-
 @media screen and (max-width: 480px) {
     .invitation-container {
-        margin-top: 15%;
+        margin-top: 170%;
         padding: 1rem;
-        max-width: 90%;
+        width: 170%;
+        margin-left: -37%;
+        /* margin: 1rem auto; */
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow-y: hidden;
     }
 
+    h1 {
+        font-size: 1.8rem; /* Smaller heading for small screens */
+    }
+
+    p {
+        font-size: 1rem; /* Adjust paragraph font size */
+        line-height: 1.4; /* Maintain readability */
+    }
+}
+
+@media screen and (max-width: 480px) {
+ 
     .button {
         padding: 12px 25px;
         font-size: 12px;
