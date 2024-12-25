@@ -12,16 +12,16 @@
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             text-align: center;
-            overflow-y: hidden;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         .invitation-container {
-            margin-top: 60%;
+            margin-top: 5rem;
             background: rgba(255, 255, 255, 0.8);
             border: 2px solid #d4af37;
             padding: 2rem;
@@ -29,34 +29,6 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             max-width: 600px;
             position: relative;
-            overflow: hidden;
-            overflow-y: hidden;
-        }
-
-        .invitation-container::before, .invitation-container::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            border-radius: 15px;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(212, 175, 55, 0.3));
-            transform: scale(1.5);
-            animation: shimmer 3s infinite linear;
-        }
-
-        .invitation-container::after {
-            animation-delay: 1.5s;
-        }
-
-        @keyframes shimmer {
-            0% {
-                transform: scale(1.5) rotate(0deg);
-            }
-            100% {
-                transform: scale(1.5) rotate(360deg);
-            }
         }
 
         h1 {
@@ -89,14 +61,14 @@
             background-color: #d4af37;
         }
 
-          /* Navigation Bar */
-          .navbar {
-            width: 100%; /* Ensures the navbar spans the entire width */
+        /* Navigation Bar */
+        .navbar {
+            width: 100%;
             background-color: rgba(255, 255, 255, 0.9);
             border-bottom: 2px solid #d4af37;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             padding: 1rem 2rem;
-            position: fixed; /* Makes it stick to the top */
+            position: fixed;
             top: 0;
             z-index: 1000;
             display: flex;
@@ -104,28 +76,6 @@
             align-items: center;
         }
 
-        .button {
-      background-color: rgba(248, 230, 217, 0.8);
-      border: none;
-      padding: 20px 30px;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      display: inline-block;
-  }
-
-  .button a {
-      color: #000;
-      text-decoration: none;
-      font-size: 16px;
-      display: block;
-      text-align: center;
-  }
-
-  .button:hover {
-      background-color: rgba(248, 230, 217, 1);
-      transform: scale(1.05);
-  }
         .navbar a {
             text-decoration: none;
             color: #5a4c42;
@@ -139,196 +89,96 @@
         }
 
         .navbar-logo {
-            margin-left: 5%;
             font-size: 1.5rem;
             font-weight: bold;
             color: #8b4513;
         }
 
         .navbar-menu {
-            margin-right: 39%;
-        }
-/* Mobile Responsive */
-
-@media screen and (max-width: 768px) {
-    .invitation-container {
-        margin-top: 170%;
-        padding: 1rem;
-        width: 170%;
-        margin-left: -47%;
-        /* margin: 1rem auto; */
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        overflow-y: hidden;
-    }
-
-    .button {
-        padding: 15px 30px;
-        font-size: 14px;
-    }
-
-    .navbar {
-        padding: 0.8rem;
-        flex-direction: column;
-    }
-
-    .navbar-logo {
-        margin-bottom: 1rem;
-    }
-
-    .navbar-menu {
-        margin-right: 0;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .content {
-        padding-top: 7rem;
-    }
-}
-@media screen and (max-width: 400px) {
-    .invitation-container {
-        margin-top: 170%;
-        padding: 1rem;
-        width: 170%;
-        margin-left: -47%;
-        /* margin: 1rem auto; */
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        overflow-y: hidden;
-    }
-
-    .button {
-        padding: 15px 30px;
-        font-size: 14px;
-    }
-
-    .navbar {
-        padding: 0.8rem;
-        flex-direction: column;
-    }
-
-    .navbar-logo {
-        margin-bottom: 1rem;
-    }
-
-    .navbar-menu {
-        margin-right: 0;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .content {
-        padding-top: 7rem;
-    }
-}
-@media screen and (max-width: 900px) {
-    .invitation-container {
-        margin-top: 170%;
-        padding: 1rem;
-        width: 170%;
-        margin-left: -37%;
-        /* margin: 1rem auto; */
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        overflow-y: hidden;
-    }
-
-    .button {
-        padding: 15px 30px;
-        font-size: 14px;
-    }
-
-    .navbar {
-        padding: 0.8rem;
-        flex-direction: column;
-    }
-
-    .navbar-logo {
-        margin-bottom: 1rem;
-    }
-
-    .navbar-menu {
-        margin-right: 0;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .content {
-        padding-top: 7rem;
-    }
-}
-@media screen and (max-width: 480px) {
-    .invitation-container {
-        margin-top: 170%;
-        padding: 1rem;
-        width: 140%;
-        margin-left: -37%;
-        /* margin: 1rem auto; */
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        overflow-y: hidden;
-    }
-
-    h1 {
-        font-size: 1.8rem; /* Smaller heading for small screens */
-    }
-
-    p {
-        font-size: 1rem; /* Adjust paragraph font size */
-        line-height: 1.4; /* Maintain readability */
-    }
-}
-
-@media screen and (max-width: 480px) {
- 
-    .button {
-        padding: 12px 25px;
-        font-size: 12px;
-    }
-
-    .navbar {
-        padding: 0.5rem;
-    }
-
-    .navbar a {
-        font-size: 1rem;
-    }
-
-    .content {
-        padding-top: 8rem;
-    }
-}
-
-        /* Content Below Navbar */
-        .content {
-            padding-top: 5rem; /* Prevents content from overlapping with the navbar */
-            text-align: center;
+            display: flex;
+            gap: 1rem;
         }
 
-        /* Mobile Responsive */
+        .button {
+            background-color: rgba(248, 230, 217, 0.8);
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .button a {
+            color: #000;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+        }
+
+        .button:hover {
+            background-color: rgba(248, 230, 217, 1);
+            transform: scale(1.05);
+        }
+
+        .gif-animation {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin: 2rem 0;
+        }
+
+        /* Responsive Styles */
         @media screen and (max-width: 768px) {
-            .navbar-menu {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
+            .invitation-container {
+                padding: 1rem;
+                margin-top: 7rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
             }
 
             .navbar {
+                flex-direction: column;
                 padding: 1rem;
             }
+
+            .navbar-menu {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .gif-animation {
+                max-width: 300px;
+            }
         }
-        .gif-animation {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-  }
-  .loca{
-    margin-bottom: -20%;
-  }
+
+        @media screen and (max-width: 480px) {
+            .invitation-container {
+                padding: 0.8rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            .button {
+                padding: 10px 20px;
+            }
+
+            .navbar-menu {
+                gap: 0.3rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -337,14 +187,12 @@
         <div class="navbar-menu">
             <a href="index.html">Accueil</a>
             <a href="Apropos.html">À Propos</a>
-            <a href="">Détails</a>
-           
+            <a href="#">Détails</a>
         </div>
     </div>
-    <img src="Animation - 1735051345150.gif" class="gif-animation " alt="Animation">
 
-   
-    <div>
+    <img src="Animation - 1735051345150.gif" class="gif-animation" alt="Animation">
+
     <div class="invitation-container">
         <h1>Invitation de Mariage</h1>
         <p class="bride-groom">Nouha & Fahd</p>
@@ -352,15 +200,14 @@
         <p>Ont l'immense bonheur de vous inviter à partager avec eux le moment unique et inoubliable de leur mariage.</p>
         <p class="date-location">Le 18 Janvier 2025<br>À 15h00<br>Chiahna 1 Palais Ouazzani, Skhirat</p>
         <div class="divider"></div>
-      
-     
-    </div>    <div ><button class="button"><a href="https://www.google.com/maps/place/Palais+Ouazzani/data=!4m2!3m1!1s0x0:0x1a77ebd2aa07a1a4?sa=X&ved=1t:2428&ictx=111&cshid=1735058447081905" target="_blank"><strong>Localisation <br></strong></a></button>
-    </div><img src="Animation - 1735053844811.gif" class="gif-animation " alt="Animation">
-</div>  
- <img src="Animation - 1735051345150.gif" class="gif-animation " alt="Animation">
+    </div>
 
+    <div>
+        <button class="button">
+            <a href="https://www.google.com/maps/place/Palais+Ouazzani" target="_blank"><strong>Localisation</strong></a>
+        </button>
+    </div>
 
-</div>
-
+    <img src="Animation - 1735053844811.gif" class="gif-animation" alt="Animation">
 </body>
 </html>
