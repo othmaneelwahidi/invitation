@@ -1,0 +1,128 @@
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+       
+.blurred {
+            filter: blur(5px);
+            pointer-events: none;
+        }
+        .popup-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .popup {
+          
+            background: white;
+            padding: 20px;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .popup h2 {
+            margin-top: 0;
+        }
+        .popup p {
+            text-align: justify;
+            font-weight:700;
+            font-size:16px;
+        }
+                   .popup button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            font-size:16px;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+            text-align: center;
+        }
+        .popup button:hover {
+            background: #0056b3;
+        }
+          .checkbox-container {
+            margin-top: 10px;
+        }
+
+<div id="popup-container" class="popup-container">
+    <div class="popup">
+        <h2>Consentement aux Cookies <i class="fa-solid fa-cookie-bite" style="color:rgb(218, 160, 109);"></i></h2>
+        <p style="color:black;">Lorsque vous vous inscrivez sur le site web de Suptech sante, vos données sont stockées dans une base de données. Nous avons besoin de votre consentement pour enregistrer votre inscription.</p>
+        <p style="color:black;">
+            En acceptant les termes énoncés ici, vous acceptez que Suptech sante puisse collecter, traiter, utiliser et partager vos données personnelles afin de traiter votre demande, que ce soit en interne ou par l’intermédiaire d’entreprises externes. 
+            Cela signifie qu’une partie de vos données peut être stockée, potentiellement sur des serveurs et des bases de données situés en dehors du pays depuis lequel vous avez postulé. 
+            Cela peut inclure des transferts en dehors de Suptech sante. Vos données personnelles ne seront pas partagées avec des tiers non autorisés.
+        </p>
+        <div class="checkbox-container">
+            <input type="checkbox" id="agree" name="agree" onclick="toggleButton()">
+            <label for="agree">Je comprends et j’accepte les conditions.</label>
+        </div>
+        <div style="margin-left:41%;">
+            <button id="accept-btn" onclick="acceptCookies()">J’accepte</button>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+    function toggleButton() {
+        var checkbox = document.getElementById("agree");
+        var button = document.getElementById("accept-btn");
+        button.style.display = checkbox.checked ? "block" : "none";
+    }
+
+    window.onload = function() {
+        document.getElementById("content").classList.add("blurred");
+    };
+
+    function acceptCookies() {
+    // Hide the popup container
+    document.getElementById("popup-container").style.display = "none";
+    
+    // Check if the 'content' element exists before removing the blurred effect
+    var content = document.getElementById("content");
+    if (content) {
+        content.classList.remove("blurred");
+    }
+
+    // Send a request to store the cookie consent in the session
+    fetch('/accept-cookie-consent', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify({ consent: true })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Session Stored Response:", data); // Log session storage status
+        if (data.success) {
+            console.log("Cookie consent has been stored in the session.");
+        } else {
+            console.log("Failed to store cookie consent in the session.");
+        }
+    })
+    .catch(error => console.error("Error storing session:", error));
+}
+
+// Check session on page load
+fetch('/check-cookie-consent')
+    .then(response => response.json())
+    .then(data => {
+        console.log("Session Data:", data); // Log session data
+        if (!data.accepted) {
+            document.getElementById('popup-container').style.display = 'flex';
+        }
+    })
+    .catch(error => console.error("Error fetching session data:", error));
+
+</script>
